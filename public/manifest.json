@@ -1,0 +1,15 @@
+{
+  "name": "Advent Calendar",
+  "short_name": "Advent",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0c0f1a",
+  "theme_color": "#0c0f1a",
+  "icons": [
+    {
+      "src": "./images/icon.png",
+      "sizes": "127x127",
+      "type": "image/png"
+    }
+  ]
+}

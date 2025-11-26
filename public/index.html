@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advent Calendar</title>
+  <link rel="icon" type="image/png" href="./images/icon.png">
+  <link rel="apple-touch-icon" href="./images/icon.png">
+  <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main class="page">
     <header class="hero">
       <img src="./images/logo.png" alt="Other Stuff logo" class="hero-logo">
-      <p class="hero-tagline">Celebrate this Christmas by remembering the Other Stuff</p>
+      <p class="hero-tagline">This Christmas remember the Other Stuff</p>
     </header>
     <section class="message">
-      <p class="message-text">What's Christmas without a little fun. So we decided to create a new little interactive amusement for you every day. Was this a lot of work? Well we had our AI agents to help us, so we can move pretty quickly.</p>
+      <p class="message-text">What's Christmas without a little fun?</p>
+      <p class="message-text">To help out this year we decided to create a new little interactive amusement for you every day.</p>
+      <p class="message-text">Was this a lot of work? Well we had our AI agents to help us, so we can move pretty quickly.</p>
     </section>
     <div class="calendar" id="calendar">
       <img src="./images/advent.png" alt="Advent calendar" class="calendar-image">
@@ -27,6 +32,7 @@
 
   <div class="overlay hidden" id="overlay">
     <div class="overlay-content">
+      <img class="overlay-icon" id="overlay-icon" alt="">
       <p class="overlay-message" id="overlay-message"></p>
       <a class="overlay-link" id="overlay-link" href="#" target="_blank" rel="noopener noreferrer"></a>
       <p class="overlay-timer" id="overlay-timer"></p>
