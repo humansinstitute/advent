@@ -1,5 +1,5 @@
 const TARGET_YEAR = 2025;
-const EARLY_UNLOCK_DAYS = 5; // allow days to open this many days early
+const EARLY_UNLOCK_DAYS = 0; // allow days to open this many days early
 const EARLY_LINK = "https://OtherStuff.ai";
 const EARLY_MESSAGE =
   "Opening your advent calendar too early? Be careful or the big red guy will pop you on the naughty list...";
@@ -27,15 +27,30 @@ fetch("./days.json")
 
 function renderHotspots() {
   hotspotsEl.innerHTML = "";
+  const now = new Date();
   days.forEach((entry) => {
     const btn = document.createElement("button");
     btn.className = "day-btn";
-    btn.textContent = entry.day;
     btn.style.left = `${entry.x}%`;
     btn.style.top = `${entry.y}%`;
     btn.style.width = `${entry.w}%`;
     btn.style.height = `${entry.h}%`;
     btn.dataset.day = entry.day;
+
+    const unlockDate = new Date(TARGET_YEAR, 11, entry.day - EARLY_UNLOCK_DAYS);
+    const isUnlocked = now >= unlockDate;
+
+    if (isUnlocked && entry.icon) {
+      btn.classList.add("day-btn--opened");
+      const img = document.createElement("img");
+      img.src = entry.icon;
+      img.alt = entry.title || `Day ${entry.day}`;
+      img.className = "day-btn-icon";
+      btn.appendChild(img);
+    } else {
+      btn.textContent = entry.day;
+    }
+
     btn.addEventListener("click", () => handleDayClick(entry));
     hotspotsEl.appendChild(btn);
   });
